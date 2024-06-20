@@ -7,10 +7,10 @@ echo "deb [signed-by=/usr/share/keyrings/elasticsearch-keyring.gpg] https://arti
 
 sudo apt-get update && sudo apt-get install elasticsearch
 
-echo "action.auto_create_index: .monitoring*,.watches,.triggered_watches,.watcher-history*,.ml*" >> /etc/elasticsearch/elasticsearch.yml
+#echo "action.auto_create_index: .monitoring*,.watches,.triggered_watches,.watcher-history*,.ml*" >> /etc/elasticsearch/elasticsearch.yml
 
-sudo /bin/systemctl daemon-reload
-sudo /bin/systemctl enable elasticsearch.service
+#sudo /bin/systemctl daemon-reload
+#sudo /bin/systemctl enable elasticsearch.service
 
 
 
