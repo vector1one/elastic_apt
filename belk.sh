@@ -7,13 +7,32 @@ echo "deb [signed-by=/usr/share/keyrings/elasticsearch-keyring.gpg] https://arti
 
 sudo apt-get update && sudo apt-get install elasticsearch
 
-#echo "action.auto_create_index: .monitoring*,.watches,.triggered_watches,.watcher-history*,.ml*" >> /etc/elasticsearch/elasticsearch.yml
+#notes
+#edit "/etc/elasticsearch/elasticsearch.yml" first before starting service
 
-#sudo /bin/systemctl daemon-reload
-#sudo /bin/systemctl enable elasticsearch.service
+  #cluster.name: my-application
+  #node.name: node-1
+  #network.host: 10.3.10.155 ( ip addr of node)
+  #http.port: 9200
+
+#once edited get token from master 
+  #/usr/share/elasticsearch/bin/elasticsearch-create-enrollment-token -s node
+
+#paste into joining node
+  #/usr/share/elasticsearch/bin/elasticsearch-reconfigure-node --enrollment-token <enrollment-token>
+#***generate new token for each node****
+
+  #start elastic
+  #systemctl daemon-reload
+  #systemctl enable elasticsearch.service
+  #systemctl start elastic
+
+#profit
 
 
 
-#cluster
-#/usr/share/elasticsearch/bin/elasticsearch-create-enrollment-token -s node
-#/usr/share/elasticsearch/bin/elasticsearch-reconfigure-node --enrollment-token <enrollment-token>
+
+
+
+
+
