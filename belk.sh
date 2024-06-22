@@ -6,8 +6,23 @@ sudo apt-get install apt-transport-https
 echo "deb [signed-by=/usr/share/keyrings/elasticsearch-keyring.gpg] https://artifacts.elastic.co/packages/8.x/apt stable main" | sudo tee /etc/apt/sources.list.d/elastic-8.x.list
 
 sudo apt-get update && sudo apt-get install elasticsearch
+#for master node install kibana
+#sudo apt install kibana
+#edit config for splash page
+#/etc/kibana/kibana.yml
+   #server.host: "0.0.0.0"
+   
+   #create token
+   #/usr/share/elasticsearch/bin/elasticsearch-create-enrollment-token -s kibana
+   #got to server address ip:5601 and paste in token   
+   
+   #get OTP
+   #/usr/share/kibana/bin/kibana-verification-code - put in code
 
-#notes
+   #reset elastic password
+   #/usr/share/elasticsearch/bin/elasticsearch-reset-password -u elastic -i
+
+#notes ADD NODES 
 #edit "/etc/elasticsearch/elasticsearch.yml" first before starting service
 
   #cluster.name: my-application
